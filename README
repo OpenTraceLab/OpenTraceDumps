@@ -2,18 +2,20 @@
 README
 -------------------------------------------------------------------------------
 
-The sigrok project aims at creating a portable, cross-platform,
-Free/Libre/Open-Source signal analysis software suite that supports various
-device types (such as logic analyzers, oscilloscopes, multimeters, and more).
+The OpenTrace project is a portable, cross-platform, Free/Libre/Open-Source
+signal analysis software suite that supports various device types (such as
+logic analyzers, oscilloscopes, multimeters, and more).
 
-sigrok-dumps is a collection of logic analyzer example data, covering various
+OpenTraceDumps is a collection of logic analyzer example data, covering various
 protocols (e.g. I2C, SPI, UART, etc).
+
+This project is based on sigrok-dumps from the sigrok project.
 
 
 Status
 ------
 
-sigrok-dumps is in a usable state and has had official tarball releases.
+OpenTraceDumps is in a usable state and has had official tarball releases.
 
 
 Installing
@@ -21,8 +23,8 @@ Installing
 
 Example captures need not get built or compiled, but can get installed.
 
-  $ git clone git://sigrok.org/sigrok-dumps
-  $ cd sigrok-dumps
+  $ git clone https://github.com/OpenTraceLab/OpenTraceDumps.git
+  $ cd OpenTraceDumps
   $ make install
 
 Optional PREFIX or DESTDIR specs are supported as well.
@@ -36,7 +38,7 @@ Optional PREFIX or DESTDIR specs are supported as well.
 Contributing dumps
 ------------------
 
-See http://sigrok.org/wiki/Example_dumps for details.
+See https://github.com/OpenTraceLab/OpenTraceDumps for details.
 
 
 Copyright and license
@@ -46,20 +48,7 @@ Unless noted otherwise, all dump files are hereby released into the
 public domain by their authors.
 
 
-Mailing list
-------------
-
- https://lists.sourceforge.net/lists/listinfo/sigrok-devel
-
-
-IRC
----
-
-You can find the sigrok developers in the #sigrok IRC channel on Libera.Chat.
-
-
 Website
 -------
 
- http://sigrok.org/wiki/Example_dumps
-
+ https://github.com/OpenTraceLab/OpenTraceDumps

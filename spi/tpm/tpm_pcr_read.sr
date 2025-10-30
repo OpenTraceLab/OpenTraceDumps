@@ -1,0 +1,22 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=4
+probe1=CLK
+probe2=MOSI
+probe3=MISO
+probe4=CS
+
+[data]
+# TPM 2.0 PCR read command over SPI
+# Sample rate: 10 MHz
+# 
+# TPM2_PCR_Read command for PCR 0:
+# Command: 0x8001000000140000017E000000010004000000000000000000
+# Response: PCR value and metadata
+# 
+# Reads Platform Configuration Register for attestation

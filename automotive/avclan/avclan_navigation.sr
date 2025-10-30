@@ -1,0 +1,30 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=500000
+unitsize=1
+total probes=1
+probe1=AVCLAN
+
+[data]
+# AVCLAN navigation system messages
+# Sample rate: 500 kHz
+# Data rate: 17.857 kbps
+# 
+# Communication between head unit (0x100) and navigation system (0x140)
+# 
+# Captured messages:
+# 1. Navigation system initialization
+# 2. GPS coordinate updates
+# 3. Route calculation requests
+# 4. Turn-by-turn guidance commands
+# 5. Display control messages
+# 
+# Navigation data includes:
+# - GPS coordinates (latitude/longitude)
+# - Speed and heading information
+# - Route waypoints
+# - Display brightness control
+# - Audio guidance triggers

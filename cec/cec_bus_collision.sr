@@ -1,0 +1,29 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=1
+probe1=CEC
+
+[data]
+# CEC bus collision example
+# Sample rate: 1 MHz
+# 
+# Demonstrates collision detection and arbitration on CEC bus
+# when multiple devices attempt simultaneous transmission
+# 
+# Sequence:
+# 1. Device A (TV) starts transmission
+# 2. Device B (Player) attempts transmission (collision)
+# 3. Both devices detect collision via bus monitoring
+# 4. Devices back off and retry with random delay
+# 5. Device with higher priority wins arbitration
+# 
+# CEC collision detection mechanism:
+# - Each device monitors bus while transmitting
+# - If transmitted bit differs from bus state = collision
+# - Losing device stops transmission immediately
+# - Winner continues transmission normally

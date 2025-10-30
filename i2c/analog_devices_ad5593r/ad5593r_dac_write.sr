@@ -1,0 +1,24 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=2
+probe1=SCL
+probe2=SDA
+
+[data]
+# AD5593R DAC channel writing
+# I2C address: 0x10
+# Sample rate: 1 MHz
+# Operation: Write to DAC channels 4 and 5
+# DAC resolution: 12-bit (0x000 to 0xFFF)
+# Reference voltage: 2.5V internal
+# 
+# Writes performed:
+# Channel 4: 0x800 (2048 decimal, ~1.25V output)
+# Channel 5: 0xCCC (3276 decimal, ~2.0V output)
+# 
+# Command format: [DAC Write Command][Channel][12-bit Value]

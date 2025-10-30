@@ -1,0 +1,30 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=500000
+unitsize=1
+total probes=1
+probe1=AVCLAN
+
+[data]
+# AVCLAN climate control integration
+# Sample rate: 500 kHz
+# Data rate: 17.857 kbps
+# 
+# Communication between head unit (0x100) and climate control (0x150)
+# 
+# Captured interactions:
+# 1. Temperature setting changes
+# 2. Fan speed adjustments
+# 3. Mode selection (heat/cool/auto)
+# 4. Defrost activation
+# 5. Status display updates on head unit
+# 
+# Climate data includes:
+# - Target temperature settings
+# - Current cabin temperature
+# - Fan speed levels (1-7)
+# - A/C compressor status
+# - Recirculation mode

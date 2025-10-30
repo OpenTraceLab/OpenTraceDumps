@@ -1,0 +1,35 @@
+Samsung IR Remote Control Signal Dumps
+======================================
+
+This directory contains Consumer Infrared (CIR) signal dumps from Samsung
+remote controls. Samsung uses a proprietary IR protocol for their devices.
+
+Samsung IR Protocol Details:
+-----------------------------
+- Carrier frequency: 38 kHz
+- Modulation: Pulse distance coding
+- Start pulse: ~4.5ms high, ~4.5ms low
+- Logic '1': ~560μs high, ~1.69ms low
+- Logic '0': ~560μs high, ~560μs low
+- Data format: 32 bits (8-bit address + 8-bit command + 16-bit checksum)
+
+Files:
+------
+- samsung_tv_power.sr: Power button press
+- samsung_tv_volume_up.sr: Volume up button press
+- samsung_tv_channel_up.sr: Channel up button press
+- samsung_tv_menu.sr: Menu button press
+- samsung_tv_numbers.sr: Number buttons 0-9
+
+Equipment:
+----------
+- Remote: Samsung BN59-01175N (or similar)
+- Target: Samsung Smart TV
+- Capture device: Logic analyzer at 1 MHz sample rate
+- IR receiver: TSOP4838 or similar 38 kHz IR receiver
+
+Notes:
+------
+These dumps demonstrate the Samsung proprietary IR protocol which is different
+from standard NEC, RC5, or RC6 protocols. The protocol includes error detection
+and repeat codes for held buttons.

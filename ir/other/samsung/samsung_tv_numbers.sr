@@ -1,0 +1,27 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=1
+probe1=IR
+
+[data]
+# Samsung TV remote number buttons 0-9
+# Protocol: Samsung proprietary
+# Carrier: 38 kHz
+# Sample rate: 1 MHz
+# Buttons: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+# Command codes:
+# 0: 0xE0E08877
+# 1: 0xE0E020DF
+# 2: 0xE0E0A05F
+# 3: 0xE0E0609F
+# 4: 0xE0E010EF
+# 5: 0xE0E0906F
+# 6: 0xE0E050AF
+# 7: 0xE0E030CF
+# 8: 0xE0E0B04F
+# 9: 0xE0E0708F

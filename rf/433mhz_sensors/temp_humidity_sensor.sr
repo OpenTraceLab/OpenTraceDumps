@@ -1,0 +1,17 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=2000000
+unitsize=1
+total probes=1
+probe1=RF_433
+
+[data]
+# 433MHz Temperature/Humidity sensor
+# Sample rate: 2 MHz
+# Sensor: Generic DHT22-compatible RF sensor
+# Transmission: Every 60 seconds
+# Data: Temperature: 23.5°C, Humidity: 65%
+# Protocol: Manchester encoded, 40-bit packet

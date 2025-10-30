@@ -1,48 +1,80 @@
--------------------------------------------------------------------------------
-Maxim Integrated DS3231 RTC
--------------------------------------------------------------------------------
+Maxim Integrated DS3231 RTC Signal Dumps
+========================================
 
-Details:
- - DS3231 datasheet: https://datasheets.maximintegrated.com/en/ds/DS3231.pdf
+The DS3231 is a highly accurate I2C real-time clock with integrated
+crystal oscillator and temperature compensation.
 
+Device Features:
+----------------
+- I2C interface (address 0x68)
+- ±2ppm accuracy from 0°C to +40°C
+- Battery backup capability
+- Two programmable alarms
+- 32kHz output
+- Temperature sensor (-40°C to +85°C)
+- Automatic leap year compensation
 
-Logic analyzer setup
---------------------
+Files:
+------
+- ds3231_ex1.sr: Complete setup and configuration sequence
+- ds3231_ex2.sr: Alarm handling and status operations  
+- ds3231_ex3.sr: Temperature sensor reading
 
-The logic analyzer used was Geeetech Mini Board Cypress FX2(LP) eval board
-with fx2lafw firmware (at 4MHz):
+Register Map (Key Registers):
+-----------------------------
+- 0x00-0x06: Time/Date registers (seconds, minutes, hours, day, date, month, year)
+- 0x07-0x0A: Alarm 1 registers
+- 0x0B-0x0D: Alarm 2 registers
+- 0x0E: Control register
+- 0x0F: Control/Status register
+- 0x10: Aging offset register
+- 0x11-0x12: Temperature registers (MSB/LSB)
 
- Probe          DS3231 pin
- -------------------------
- 0              SCL
- 1              SDA
+Logic Analyzer Setup:
+---------------------
+- Device: Geeetech Mini Board Cypress FX2(LP) with fx2lafw firmware
+- Sample rate: 4 MHz
+- Probe 0: SCL (clock)
+- Probe 1: SDA (data)
 
-
-ds3231_ex1.sr
-----------------------
-
-The file provides reading/writing of time keeping registers as well as
-control, control/status and temperature registers of the RTC chip, which
-was setup to 24-hours mode:
-
+ds3231_ex1.sr - Complete Configuration:
+---------------------------------------
+Demonstrates full RTC setup sequence:
 - Read Control register
-- Write Control register - disable alarms
-- Read Control/Status register
-- Write Control/Status register - clear alarm's flags
-- Write Alarm 1 registers - set Alarm 1 at every 1st date
-- Write Alarm 2 registers - set Alarm 2 at every minute
-- Read date/time
+- Write Control register (disable alarms)
+- Read Control/Status register  
+- Write Control/Status register (clear alarm flags)
+- Write Alarm 1 registers (set alarm for 1st of month)
+- Write Alarm 2 registers (set alarm every minute)
+- Read current date/time
 - Read temperature (MSB)
+- 24-hour mode configuration
 
-
-ds3231_ex2.sr
-----------------------
-
-The file provides reading/writing of time keeping registers as well as
-control/status and temperature registers of the RTC chip, which was setup
-to 24-hours mode and after Alarm 2 occured:
-
-- Read Control/Status register
-- Write Control/Status register - clear alarm flag
-- Read date/time
+ds3231_ex2.sr - Alarm Handling:
+-------------------------------
+Shows alarm processing after Alarm 2 triggered:
+- Read Control/Status register (check alarm flags)
+- Write Control/Status register (clear alarm flag)
+- Read current date/time
 - Read temperature (MSB)
+- Demonstrates alarm interrupt handling
+
+ds3231_ex3.sr - Temperature Reading:
+------------------------------------
+Focuses on temperature sensor functionality:
+- Read temperature registers (0x11-0x12)
+- Temperature resolution: 0.25°C
+- Two's complement format
+- MSB contains integer temperature
+- LSB bits 7-6 contain fractional part
+
+Temperature Calculation:
+------------------------
+Temperature = MSB + (LSB >> 6) × 0.25°C
+Example: MSB=0x19, LSB=0x40 → 25 + 1×0.25 = 25.25°C
+
+For more information:
+---------------------
+- DS3231 datasheet: https://datasheets.maximintegrated.com/en/ds/DS3231.pdf
+- I2C protocol specification
+- Real-time clock applications and battery backup considerations

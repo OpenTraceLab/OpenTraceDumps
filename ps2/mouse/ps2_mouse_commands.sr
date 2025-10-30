@@ -1,0 +1,38 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=100000
+unitsize=1
+total probes=2
+probe1=CLK
+probe2=DATA
+
+[data]
+# PS/2 mouse host commands and responses
+# Sample rate: 100 kHz
+# Clock frequency: ~10 kHz
+# 
+# Command sequences (Host -> Mouse -> Response):
+# 
+# 1. Get Device ID:
+# Host sends: 0xF2
+# Mouse responds: 0xFA (ACK), then 0x00 (Device ID for standard mouse)
+# 
+# 2. Set Sample Rate to 100 reports/sec:
+# Host sends: 0xF3 (Set Sample Rate command)
+# Mouse responds: 0xFA (ACK)
+# Host sends: 0x64 (100 decimal)
+# Mouse responds: 0xFA (ACK)
+# 
+# 3. Set Resolution to 2 counts/mm:
+# Host sends: 0xE8 (Set Resolution command)
+# Mouse responds: 0xFA (ACK)
+# Host sends: 0x01 (Resolution value)
+# Mouse responds: 0xFA (ACK)
+# 
+# 4. Enable IntelliMouse mode (scroll wheel):
+# Host sends sequence: 0xF3 0xC8 0xF3 0x64 0xF3 0x50
+# Each command gets 0xFA response
+# Then Get Device ID returns 0x03 instead of 0x00

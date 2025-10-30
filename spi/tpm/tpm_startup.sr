@@ -1,0 +1,23 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=4
+probe1=CLK
+probe2=MOSI
+probe3=MISO
+probe4=CS
+
+[data]
+# TPM 2.0 startup command over SPI
+# Sample rate: 10 MHz
+# SPI Mode 0, 8-bit transfers
+# 
+# TPM2_Startup command sequence:
+# Command: 0x80010000000C00000144000000
+# Response: 0x80010000000A00000000
+# 
+# Demonstrates TPM initialization after power-on

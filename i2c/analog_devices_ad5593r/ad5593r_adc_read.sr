@@ -1,0 +1,23 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=2
+probe1=SCL
+probe2=SDA
+
+[data]
+# AD5593R ADC channel reading
+# I2C address: 0x10
+# Sample rate: 1 MHz
+# Operation: Read ADC channels 0, 1, 2, 3
+# Each ADC reading returns 12-bit value
+# Data format: [Channel ID][12-bit ADC value]
+# Example readings:
+# Channel 0: 0x0ABC (2748 decimal, ~1.68V)
+# Channel 1: 0x1DEF (7663 decimal, ~4.68V)
+# Channel 2: 0x2123 (291 decimal, ~0.18V)
+# Channel 3: 0x3FFF (4095 decimal, ~2.5V full scale)

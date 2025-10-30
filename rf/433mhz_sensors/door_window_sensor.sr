@@ -1,0 +1,17 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=2000000
+unitsize=1
+total probes=1
+probe1=RF_433
+
+[data]
+# 433MHz Door/Window contact sensor
+# Sample rate: 2 MHz
+# Sensor: Magnetic reed switch sensor
+# Transmission: On state change + periodic heartbeat
+# Data: Door OPEN/CLOSED status, battery level
+# Protocol: PWM encoded, 24-bit packet

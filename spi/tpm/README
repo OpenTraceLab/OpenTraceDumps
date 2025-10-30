@@ -1,0 +1,26 @@
+TPM (Trusted Platform Module) over SPI Signal Dumps
+===================================================
+
+TPM 2.0 devices can communicate via SPI interface for secure operations
+including cryptographic functions, key storage, and attestation.
+
+Protocol Details:
+-----------------
+- SPI Mode 0 (CPOL=0, CPHA=0)
+- Clock frequency: Up to 24 MHz
+- 4-wire SPI: CLK, MOSI, MISO, CS
+- Wait states supported via MISO monitoring
+
+Files:
+------
+- tpm_startup.sr: TPM startup sequence
+- tpm_pcr_read.sr: Platform Configuration Register read
+- tpm_random.sr: Random number generation
+- tpm_key_create.sr: Key creation transaction
+
+TPM 2.0 Command Structure:
+--------------------------
+- Command Header: Tag, Size, Command Code
+- Command Parameters: Variable length
+- Response Header: Tag, Size, Response Code
+- Response Parameters: Variable length

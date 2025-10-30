@@ -1,0 +1,26 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=2
+probe1=SCL
+probe2=SDA
+
+[data]
+# AD5593R multi-channel ADC/DAC operations
+# I2C address: 0x10
+# Sample rate: 1 MHz
+# 
+# Complex sequence demonstrating:
+# 1. Simultaneous ADC readings from multiple channels
+# 2. DAC updates to multiple channels
+# 3. GPIO state changes
+# 4. Register status reads
+# 
+# This capture shows a typical application scenario where
+# the AD5593R is used for mixed-signal processing with
+# multiple analog inputs, analog outputs, and digital I/O
+# all controlled via I2C interface.

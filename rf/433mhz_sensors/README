@@ -1,0 +1,36 @@
+433MHz RF Sensor Signal Dumps
+=============================
+
+Collection of signal dumps from cheap 433MHz RF sensors commonly
+used in home automation and weather monitoring applications.
+
+Protocol Details:
+-----------------
+- Frequency: 433.92 MHz ISM band
+- Modulation: OOK (On-Off Keying) or ASK (Amplitude Shift Keying)
+- Data encoding: Manchester, PWM, or proprietary
+- Transmission: Periodic bursts with sensor data
+
+Files:
+------
+- temp_humidity_sensor.sr: Temperature/humidity sensor
+- door_window_sensor.sr: Door/window contact sensor  
+- motion_pir_sensor.sr: PIR motion detector
+- weather_station.sr: Multi-parameter weather station
+
+Common Sensor Types:
+--------------------
+- Temperature/Humidity sensors
+- Door/Window contact sensors
+- Motion detectors (PIR)
+- Weather stations
+- Soil moisture sensors
+- Water leak detectors
+
+Typical Characteristics:
+------------------------
+- Low power consumption (battery operated)
+- Transmission range: 30-100 meters
+- Data rate: 1-10 kbps
+- Periodic transmission (30s-5min intervals)
+- Simple packet structure with sensor ID and data

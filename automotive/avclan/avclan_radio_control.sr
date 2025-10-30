@@ -1,0 +1,24 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=500000
+unitsize=1
+total probes=1
+probe1=AVCLAN
+
+[data]
+# AVCLAN radio control commands
+# Sample rate: 500 kHz
+# Data rate: 17.857 kbps (~56 μs per bit)
+# 
+# Captured commands:
+# 1. Power ON command from head unit
+# 2. Volume UP command
+# 3. Station preset selection
+# 4. Mode change (AM/FM/CD)
+# 
+# Frame format examples:
+# Power ON:  [Start][0x100][0x110][0x01][0x20][Checksum][Stop]
+# Volume UP: [Start][0x100][0x120][0x02][0x15][Checksum][Stop]

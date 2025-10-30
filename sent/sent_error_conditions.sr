@@ -1,0 +1,47 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=1
+probe1=SENT
+
+[data]
+# SENT error conditions and signal issues
+# Sample rate: 10 MHz
+# Tick time: 3.0 μs
+# 
+# This capture demonstrates various error conditions:
+# 
+# 1. CRC Error Frame:
+# - Sync pulse: 56 ticks (correct)
+# - Status: 0x2, Data: 0x4A3, CRC: 0x5 (incorrect, should be 0xB)
+# - Receiver should detect CRC mismatch and flag error
+# 
+# 2. Timing Error Frame:
+# - Sync pulse: 52 ticks (incorrect, should be 56)
+# - Causes receiver to recalibrate tick timing
+# - May result in frame rejection
+# 
+# 3. Missing Sync Pulse:
+# - Frame starts directly with status nibble
+# - Receiver loses synchronization
+# - Requires resynchronization on next valid frame
+# 
+# 4. Electrical Noise:
+# - Signal corruption during data transmission
+# - Glitches in pulse widths
+# - May cause nibble decoding errors
+# 
+# 5. Sensor Fault Indication:
+# - Status nibble indicates sensor malfunction
+# - Status: 0xF (fault condition)
+# - Data may be invalid or default values
+# 
+# Error handling strategies:
+# - CRC validation on every frame
+# - Timeout detection for missing frames
+# - Status nibble monitoring for sensor health
+# - Signal quality assessment

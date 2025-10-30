@@ -1,0 +1,47 @@
+Analog Devices AD5593R I2C Signal Dumps
+=======================================
+
+The AD5593R is a 12-bit, 8-channel, configurable ADC/DAC with on-chip reference,
+I2C interface, and GPIO functionality.
+
+Device Features:
+----------------
+- 8 configurable I/O pins (ADC, DAC, GPIO, or comparator)
+- 12-bit resolution
+- Internal 2.5V reference
+- I2C interface (7-bit address: 0x10-0x17 depending on ADDR pins)
+- Operating voltage: 2.7V to 5.5V
+- Temperature range: -40°C to +125°C
+
+I2C Protocol Details:
+--------------------
+- Standard I2C communication (100 kHz to 400 kHz)
+- 7-bit device address: 0x10 + ADDR[2:0] pins
+- Register-based configuration
+- Multi-byte read/write operations supported
+
+Files:
+------
+- ad5593r_init.sr: Device initialization sequence
+- ad5593r_adc_read.sr: ADC channel reading
+- ad5593r_dac_write.sr: DAC channel writing
+- ad5593r_gpio_config.sr: GPIO configuration
+- ad5593r_multi_channel.sr: Multi-channel ADC/DAC operations
+
+Register Map (Key Registers):
+-----------------------------
+- 0x00: NOP (No Operation)
+- 0x01: DAC Write
+- 0x02: ADC Read
+- 0x03: General Purpose Configuration
+- 0x04: ADC Pin Configuration
+- 0x05: DAC Pin Configuration
+- 0x06: Pull-down Configuration
+- 0x07: LDAC Mode
+- 0x08: GPIO Write Configuration
+- 0x09: GPIO Write Data
+- 0x0A: GPIO Read Configuration
+- 0x0B: Power Reference Control
+
+For more information, see the AD5593R datasheet:
+https://www.analog.com/en/products/ad5593r.html

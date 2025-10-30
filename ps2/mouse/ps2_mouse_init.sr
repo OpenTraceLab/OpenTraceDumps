@@ -1,0 +1,25 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=100000
+unitsize=1
+total probes=2
+probe1=CLK
+probe2=DATA
+
+[data]
+# PS/2 mouse initialization sequence
+# Sample rate: 100 kHz
+# Clock frequency: ~10 kHz
+# 
+# Initialization sequence:
+# 1. Host sends Reset command (0xFF)
+# 2. Mouse responds with ACK (0xFA)
+# 3. Mouse sends BAT completion (0xAA)
+# 4. Mouse sends Device ID (0x00 for standard mouse)
+# 5. Host sends Enable Data Reporting (0xF4)
+# 6. Mouse responds with ACK (0xFA)
+# 
+# After initialization, mouse begins sending movement data packets

@@ -1,0 +1,32 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=100000
+unitsize=1
+total probes=2
+probe1=CLK
+probe2=DATA
+
+[data]
+# PS/2 mouse button click sequences
+# Sample rate: 100 kHz
+# Clock frequency: ~10 kHz
+# 
+# Button click sequences (press and release):
+# 
+# Left button click:
+# Press:   [0x09][0x00][0x00] (left button bit set)
+# Release: [0x08][0x00][0x00] (left button bit clear)
+# 
+# Right button click:
+# Press:   [0x0A][0x00][0x00] (right button bit set)
+# Release: [0x08][0x00][0x00] (right button bit clear)
+# 
+# Middle button click:
+# Press:   [0x0C][0x00][0x00] (middle button bit set)
+# Release: [0x08][0x00][0x00] (middle button bit clear)
+# 
+# Double-click sequence:
+# Two rapid left button press/release cycles

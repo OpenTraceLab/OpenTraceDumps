@@ -1,0 +1,28 @@
+ADAT Lightpipe Digital Audio Signal Dumps
+=========================================
+
+ADAT (Alesis Digital Audio Tape) Lightpipe is a digital audio protocol
+that transmits 8 channels of 24-bit audio over optical fiber.
+
+Protocol Details:
+-----------------
+- 8 channels of digital audio
+- 24-bit resolution per channel
+- Sample rates: 44.1, 48, 88.2, 96 kHz
+- Optical transmission (TOSLINK)
+- NRZI encoding
+- Synchronization patterns
+
+Files:
+------
+- adat_48khz_8ch.sr: 8-channel audio at 48 kHz
+- adat_sync_pattern.sr: Synchronization frame
+- adat_user_bits.sr: User data transmission
+
+Frame Structure:
+----------------
+- 256 bits per frame
+- 24 bits per channel × 8 channels = 192 bits
+- 4 user bits
+- 4 sync bits
+- NRZI encoded optical signal

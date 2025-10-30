@@ -1,0 +1,36 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=100000
+unitsize=1
+total probes=2
+probe1=CLK
+probe2=DATA
+
+[data]
+# PS/2 IntelliMouse scroll wheel data
+# Sample rate: 100 kHz
+# Clock frequency: ~10 kHz
+# 
+# IntelliMouse 4-byte packet format:
+# Byte 1: Button and movement flags
+# Byte 2: X movement data
+# Byte 3: Y movement data
+# Byte 4: Scroll wheel data (signed 4-bit value in lower nibble)
+# 
+# Scroll wheel movements:
+# 
+# Scroll up (away from user):
+# [0x08][0x00][0x00][0x01] (scroll wheel +1)
+# 
+# Scroll down (toward user):
+# [0x08][0x00][0x00][0xFF] (scroll wheel -1)
+# 
+# Multiple scroll steps:
+# [0x08][0x00][0x00][0x03] (scroll wheel +3)
+# [0x08][0x00][0x00][0xFD] (scroll wheel -3)
+# 
+# Note: This requires IntelliMouse protocol initialization
+# (Device ID 0x03 instead of 0x00)

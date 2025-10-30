@@ -1,0 +1,30 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=500000
+unitsize=1
+total probes=1
+probe1=AVCLAN
+
+[data]
+# AVCLAN bus idle state and arbitration
+# Sample rate: 500 kHz
+# Data rate: 17.857 kbps
+# 
+# Demonstrates:
+# 1. Bus idle state (~6V middle voltage)
+# 2. Bus arbitration when multiple devices attempt transmission
+# 3. Collision detection and backoff
+# 4. Successful message transmission after arbitration
+# 
+# Arbitration process:
+# - Device A starts transmission
+# - Device B attempts transmission (collision)
+# - Both devices detect collision and back off
+# - Device with higher priority wins arbitration
+# - Losing device waits for bus idle before retry
+# 
+# This capture shows the multi-master nature of AVCLAN
+# and how devices coordinate access to the shared bus.

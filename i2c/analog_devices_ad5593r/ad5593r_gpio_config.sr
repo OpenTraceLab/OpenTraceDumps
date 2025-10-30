@@ -1,0 +1,25 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=2
+probe1=SCL
+probe2=SDA
+
+[data]
+# AD5593R GPIO configuration and control
+# I2C address: 0x10
+# Sample rate: 1 MHz
+# 
+# Operations:
+# 1. Configure channels 6-7 as GPIO outputs
+# 2. Set GPIO output values
+# 3. Read GPIO input status
+# 
+# GPIO operations:
+# - Channel 6: Set as output, drive HIGH
+# - Channel 7: Set as output, drive LOW
+# - Read back GPIO status register

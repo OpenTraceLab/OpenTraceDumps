@@ -1,0 +1,39 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=1
+probe1=SENT
+
+[data]
+# SENT with fast channel data
+# Sample rate: 10 MHz
+# Tick time: 3.0 μs
+# Application: Multi-parameter sensor with fast channel
+# 
+# Standard SENT frame + Fast Channel in pause pulse:
+# - Sync pulse: 56 ticks (168 μs)
+# - Status nibble: 4 bits
+# - Data nibbles: 3 nibbles (main sensor data)
+# - CRC nibble: 4 bits
+# - Fast channel: 4-bit data in pause pulse
+# - Pause pulse: Extended for fast channel data
+# 
+# Fast channel provides additional sensor information:
+# - Secondary measurements
+# - Diagnostic data
+# - Configuration parameters
+# - Error codes
+# 
+# Main channel: Primary pressure measurement
+# Fast channel sequence (transmitted over multiple frames):
+# Frame 1: Fast data 0x5 (sensor ID nibble 1)
+# Frame 2: Fast data 0xA (sensor ID nibble 2)
+# Frame 3: Fast data 0x3 (diagnostic status)
+# Frame 4: Fast data 0x7 (temperature compensation)
+# 
+# Fast channel data rate: 1/4 of main channel rate
+# Total information bandwidth significantly increased

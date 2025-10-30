@@ -1,0 +1,17 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=1
+probe1=IR
+
+[data]
+# Samsung TV remote volume up button
+# Protocol: Samsung proprietary
+# Carrier: 38 kHz
+# Sample rate: 1 MHz
+# Button: Volume Up
+# Command code: 0xE0E0E01F

@@ -1,0 +1,31 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=1
+probe1=SENT
+
+[data]
+# SENT pressure sensor data
+# Sample rate: 10 MHz
+# Tick time: 3.0 μs
+# Application: Manifold Absolute Pressure (MAP) sensor
+# 
+# Frame structure:
+# - Sync pulse: 56 ticks (168 μs)
+# - Status nibble: 4 bits (sensor status, counter)
+# - Data nibbles: 3 nibbles (12-bit pressure value)
+# - CRC nibble: 4 bits (checksum)
+# - Pause pulse: Variable length
+# 
+# Pressure range: 0-250 kPa
+# Resolution: 12-bit (4096 steps)
+# Update rate: ~1 kHz
+# 
+# Example data:
+# Status: 0x2 (normal operation, counter=2)
+# Pressure: 0x4A3 (1187 decimal, ~72 kPa)
+# CRC: 0xB (calculated checksum)

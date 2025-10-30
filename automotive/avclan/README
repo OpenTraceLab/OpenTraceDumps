@@ -1,0 +1,56 @@
+Toyota AVCLAN (Audio Visual Communication LAN) Protocol Dumps
+============================================================
+
+AVCLAN is Toyota's proprietary communication protocol used in their vehicles
+for connecting audio, navigation, and other infotainment components.
+
+Protocol Details:
+-----------------
+- Physical layer: Single-wire differential signaling
+- Voltage levels: 0V (low), 12V (high), 6V (idle)
+- Data rate: Typically 17.857 kbps
+- Frame format: Start bit + Address + Data + Checksum + Stop bit
+- Network topology: Multi-master bus with collision detection
+- Used in: Toyota, Lexus vehicles (1990s-2000s)
+
+Signal Characteristics:
+-----------------------
+- Idle state: ~6V (middle voltage)
+- Logic '0': 0V (ground)
+- Logic '1': 12V (battery voltage)
+- Bit timing: ~56 μs per bit
+- Frame structure: Variable length packets
+
+Files:
+------
+- avclan_radio_control.sr: Radio control commands
+- avclan_cd_changer.sr: CD changer communication
+- avclan_navigation.sr: Navigation system messages
+- avclan_climate_control.sr: Climate control integration
+- avclan_bus_idle.sr: Bus idle state and arbitration
+
+Device Types (Common Addresses):
+--------------------------------
+- 0x100: Head unit (radio/navigation)
+- 0x110: CD changer
+- 0x120: Amplifier
+- 0x130: Phone interface
+- 0x140: Navigation system
+- 0x150: Climate control interface
+- 0x1A0: Steering wheel controls
+- 0x1B0: Display unit
+
+Message Format:
+---------------
+[Start][Master Address][Slave Address][Control][Data...][Checksum][Stop]
+
+Notes:
+------
+AVCLAN was used primarily in Toyota and Lexus vehicles from the 1990s through
+early 2000s before being replaced by more modern automotive bus systems like
+CAN bus. The protocol allows for complex interactions between various vehicle
+subsystems.
+
+For more technical details, see:
+- Toyota AVCLAN specification documents
+- Reverse engineering documentation by automotive enthusiasts

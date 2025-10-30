@@ -1,0 +1,24 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=3
+probe1=PWM_A
+probe2=PWM_B
+probe3=PWM_C
+
+[data]
+# 3-phase motor PWM inverter signals
+# Sample rate: 10 MHz
+# PWM frequency: 20 kHz
+# 3-phase sinusoidal PWM with 120° phase shift
+# 
+# Phase A: 0° reference
+# Phase B: 120° lag
+# Phase C: 240° lag
+# 
+# Space Vector Modulation (SVM) technique
+# Variable frequency drive operation

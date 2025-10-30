@@ -1,0 +1,17 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=400000
+unitsize=1
+total probes=2
+probe1=SCL
+probe2=SDA
+
+[data]
+# DS3231 RTC example 3 - Temperature reading
+# Sample rate: 400 kHz
+# I2C address: 0x68
+# Reading internal temperature sensor
+# Temperature register: 0x11-0x12

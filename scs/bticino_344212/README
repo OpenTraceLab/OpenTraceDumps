@@ -1,0 +1,23 @@
+Bticino 344212 Intercom System SCS Protocol Dumps
+=================================================
+
+SCS (Sistema Casa Sicura) is Bticino's proprietary bus system
+for home automation and intercom systems.
+
+Protocol Details:
+-----------------
+- 2-wire bus system
+- 27V DC power + data
+- Manchester encoding
+- Collision detection
+- Device addressing
+
+Files:
+------
+- scs_door_call.sr: Door call signal
+- scs_door_open.sr: Door opening command
+- scs_intercom_audio.sr: Audio transmission
+
+Device: Bticino 344212 intercom module
+Bus voltage: 27V DC
+Data encoding: Manchester

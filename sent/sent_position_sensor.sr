@@ -1,0 +1,36 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=1
+probe1=SENT
+
+[data]
+# SENT position sensor data
+# Sample rate: 10 MHz
+# Tick time: 3.0 μs
+# Application: Throttle position sensor (TPS)
+# 
+# Frame structure:
+# - Sync pulse: 56 ticks (168 μs)
+# - Status nibble: 4 bits (sensor health, learning status)
+# - Data nibbles: 4 nibbles (16-bit position value)
+# - CRC nibble: 4 bits (checksum)
+# - Pause pulse: Variable length
+# 
+# Position range: 0-100% throttle opening
+# Resolution: 16-bit (65536 steps, ~0.0015% per step)
+# Update rate: ~2 kHz (high speed for precise control)
+# 
+# Example sequence showing throttle movement:
+# Frame 1: Idle position (5% throttle)
+# Status: 0x0, Position: 0x0CCC (3276 decimal), CRC: 0xA
+# 
+# Frame 2: Partial throttle (25% throttle)
+# Status: 0x0, Position: 0x4000 (16384 decimal), CRC: 0x4
+# 
+# Frame 3: Wide open throttle (95% throttle)
+# Status: 0x0, Position: 0xF333 (62259 decimal), CRC: 0x2

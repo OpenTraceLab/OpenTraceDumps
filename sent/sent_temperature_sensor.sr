@@ -1,0 +1,33 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=1
+probe1=SENT
+
+[data]
+# SENT temperature sensor data
+# Sample rate: 10 MHz
+# Tick time: 3.0 μs
+# Application: Engine coolant temperature sensor
+# 
+# Frame structure:
+# - Sync pulse: 56 ticks (168 μs)
+# - Status nibble: 4 bits (includes error flags)
+# - Data nibbles: 2 nibbles (8-bit temperature value)
+# - CRC nibble: 4 bits (checksum)
+# - Pause pulse: Variable length
+# 
+# Temperature range: -40°C to +150°C
+# Resolution: 8-bit (256 steps, ~0.74°C per step)
+# Update rate: ~500 Hz
+# 
+# Example frames:
+# Frame 1: Normal operation, 85°C
+# Status: 0x1, Temp: 0xA9 (169 decimal), CRC: 0x7
+# 
+# Frame 2: Over-temperature warning, 125°C
+# Status: 0x9, Temp: 0xD5 (213 decimal), CRC: 0x3

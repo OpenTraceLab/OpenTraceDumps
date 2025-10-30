@@ -1,0 +1,22 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=10000000
+unitsize=1
+total probes=4
+probe1=CLK
+probe2=MOSI
+probe3=MISO
+probe4=CS
+
+[data]
+# TPM 2.0 random number generation over SPI
+# Sample rate: 10 MHz
+# 
+# TPM2_GetRandom command for 32 bytes:
+# Command: 0x8001000000100000017B0020
+# Response: 32 bytes of cryptographically secure random data
+# 
+# Demonstrates TPM's hardware random number generator

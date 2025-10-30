@@ -1,0 +1,16 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=25000000
+unitsize=1
+total probes=1
+probe1=ADAT
+
+[data]
+# ADAT Lightpipe 8-channel audio at 48 kHz
+# Sample rate: 25 MHz
+# 8 channels × 24-bit × 48 kHz sample rate
+# NRZI encoded optical signal
+# Contains sync patterns and audio data

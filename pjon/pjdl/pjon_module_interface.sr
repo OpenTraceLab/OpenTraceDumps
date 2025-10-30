@@ -1,0 +1,16 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=1000000
+unitsize=1
+total probes=1
+probe1=PJON
+
+[data]
+# PJON-PJDL with ModuleInterface protocol stack
+# Sample rate: 1 MHz
+# Additional protocol layer for module communication
+# Stacked protocol implementation
+# Enhanced error detection and module addressing

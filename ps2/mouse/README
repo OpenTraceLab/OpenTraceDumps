@@ -1,0 +1,56 @@
+PS/2 Mouse Protocol Signal Dumps
+================================
+
+This directory contains signal dumps for PS/2 mouse communication.
+The PS/2 mouse protocol is a bidirectional synchronous serial protocol
+used for mouse input devices.
+
+Protocol Details:
+-----------------
+- Clock frequency: 10-16.7 kHz (typically ~10 kHz)
+- Data format: 11 bits per frame (1 start, 8 data, 1 parity, 1 stop)
+- Parity: Odd parity
+- Communication: Bidirectional (host can send commands to mouse)
+- Voltage levels: 0V (low), 5V (high) with open-collector outputs
+
+Mouse Data Packet Format (Standard 3-byte):
+-------------------------------------------
+Byte 1: [Y overflow][X overflow][Y sign][X sign][Always 1][Middle][Right][Left]
+Byte 2: X movement data (8-bit signed)
+Byte 3: Y movement data (8-bit signed)
+
+Extended Protocols:
+-------------------
+- IntelliMouse: 4-byte packets with scroll wheel data
+- IntelliMouse Explorer: 4-byte packets with additional buttons
+
+Files:
+------
+- ps2_mouse_init.sr: Mouse initialization sequence
+- ps2_mouse_movement.sr: Basic mouse movement packets
+- ps2_mouse_clicks.sr: Left, right, and middle button clicks
+- ps2_mouse_scroll.sr: Scroll wheel data (IntelliMouse protocol)
+- ps2_mouse_commands.sr: Host commands to mouse (reset, set resolution, etc.)
+
+Common Mouse Commands:
+----------------------
+- 0xFF: Reset
+- 0xF6: Set Defaults
+- 0xF5: Disable Data Reporting
+- 0xF4: Enable Data Reporting
+- 0xF3: Set Sample Rate
+- 0xF2: Get Device ID
+- 0xE8: Set Resolution
+- 0xE6: Set Scaling 1:1
+
+Mouse Responses:
+----------------
+- 0xFA: Acknowledge (ACK)
+- 0xFE: Resend
+- 0xAA: Basic Assurance Test (BAT) completion
+- 0x00: Mouse ID (standard mouse)
+- 0x03: Mouse ID (IntelliMouse with scroll wheel)
+- 0x04: Mouse ID (IntelliMouse Explorer with 5 buttons)
+
+For more information about PS/2 protocol:
+https://wiki.osdev.org/PS/2_Mouse

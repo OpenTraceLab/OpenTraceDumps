@@ -1,0 +1,27 @@
+BISS (Bidirectional/Serial Synchronous) Protocol Examples
+========================================================
+
+This directory contains signal dumps for the BISS protocol, which is commonly
+used in industrial position encoders and sensors.
+
+BISS is a digital interface protocol that provides:
+- Bidirectional communication
+- High-speed data transmission
+- Error detection capabilities
+- Support for both absolute and incremental encoders
+
+Files:
+------
+- biss_encoder_basic.sr: Basic BISS encoder communication
+- biss_encoder_multiturn.sr: Multi-turn absolute encoder data
+- biss_encoder_error.sr: BISS communication with error conditions
+
+Protocol Details:
+-----------------
+- Clock frequency: Typically 1-10 MHz
+- Data format: Synchronous serial
+- Error detection: CRC checksum
+- Typical applications: Industrial automation, robotics, CNC machines
+
+For more information about the BISS protocol, see:
+https://www.biss-interface.com/

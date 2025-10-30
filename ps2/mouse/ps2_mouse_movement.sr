@@ -1,0 +1,32 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=100000
+unitsize=1
+total probes=2
+probe1=CLK
+probe2=DATA
+
+[data]
+# PS/2 mouse movement data packets
+# Sample rate: 100 kHz
+# Clock frequency: ~10 kHz
+# 
+# Standard 3-byte movement packets:
+# 
+# Packet 1 - Small right movement:
+# Byte 1: 0x08 (no buttons, positive X, no Y overflow/sign)
+# Byte 2: 0x05 (X movement: +5)
+# Byte 3: 0x00 (Y movement: 0)
+# 
+# Packet 2 - Small up movement:
+# Byte 1: 0x18 (no buttons, no X, negative Y sign)
+# Byte 2: 0x00 (X movement: 0)
+# Byte 3: 0xFB (Y movement: -5, up is negative)
+# 
+# Packet 3 - Diagonal movement:
+# Byte 1: 0x08 (no buttons, positive X, positive Y)
+# Byte 2: 0x03 (X movement: +3)
+# Byte 3: 0x03 (Y movement: +3)

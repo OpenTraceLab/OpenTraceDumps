@@ -1,0 +1,18 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=2000000
+unitsize=1
+total probes=3
+probe1=BCLK
+probe2=LRCLK
+probe3=DATA
+
+[data]
+# Updated I2S stereo audio sample
+# Sample rate: 2 MHz
+# Audio format: 2-channel, 32-bit, 8 kHz
+# Left/Right channel data
+# Updated with improved signal quality and timing

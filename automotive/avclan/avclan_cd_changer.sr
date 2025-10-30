@@ -1,0 +1,29 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=500000
+unitsize=1
+total probes=1
+probe1=AVCLAN
+
+[data]
+# AVCLAN CD changer communication
+# Sample rate: 500 kHz
+# Data rate: 17.857 kbps
+# 
+# Communication between head unit (0x100) and CD changer (0x110)
+# 
+# Captured sequence:
+# 1. Head unit requests CD changer status
+# 2. CD changer responds with disc/track information
+# 3. Head unit sends play command
+# 4. CD changer acknowledges and starts playback
+# 5. Periodic status updates during playback
+# 
+# Status information includes:
+# - Current disc number (1-6)
+# - Current track number
+# - Playback time
+# - Player state (play/pause/stop/seek)

@@ -1,0 +1,17 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=5000000
+unitsize=1
+total probes=2
+probe1=CLK
+probe2=DATA
+
+[data]
+# Multi-turn absolute BISS encoder
+# Clock signal with extended position data
+# Sample rate: 5 MHz
+# Duration: ~2ms
+# Contains multi-turn position information

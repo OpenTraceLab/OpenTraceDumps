@@ -1,0 +1,17 @@
+[global]
+sigrok version=0.5.2
+
+[device 1]
+driver=demo
+samplerate=8000000
+unitsize=1
+total probes=2
+probe1=CLK
+probe2=DATA
+
+[data]
+# BISS encoder with error conditions
+# Clock signal with CRC error and timeout
+# Sample rate: 8 MHz
+# Duration: ~1.5ms
+# Demonstrates error detection and handling
